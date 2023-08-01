@@ -121,7 +121,7 @@ expect "#"
 send "echo nameserver 1.1.1.1 > /etc/resolv.conf\r"
 
 expect "#"
-send "apk update && apk add docker ip6tables\r"
+send "apk update && apk add docker docker-compose ip6tables\r"
 
 expect "#"
 send "service docker start\r"
