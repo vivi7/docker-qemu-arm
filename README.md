@@ -11,7 +11,7 @@ This is a automatic installation script. As memory is always short, we also inst
 
 
 ```bash
-$ curl -o termux-setup.sh https://raw.githubusercontent.com/egandro/docker-qemu-arm/master/termux-setup.sh && chmod 755 ./termux-setup.sh && ./termux-setup.sh
+$ curl -o termux-setup.sh https://raw.githubusercontent.com/musk95/docker-qemu-arm/master/termux-setup.sh && chmod 755 ./termux-setup.sh && ./termux-setup.sh
 ```
 
 
@@ -47,6 +47,8 @@ $ curl -o fedora-arm-setup.sh https://raw.githubusercontent.com/egandro/docker-q
 - Thanks to everybody who made this happen.
 
 ## Changelog
+### 2023/08/01
+ - fixed issue with alpine for DNS
 ### 2021/10/07
 
 - added config.env - this makes it much simpler for developers to tweak version numbers
