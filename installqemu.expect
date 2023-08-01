@@ -56,6 +56,9 @@ expect "localhost:~#"
 send "ifup eth0\r"
 
 expect "localhost:~#"
+send "echo nameserver 1.1.1.1 > /etc/resolv.conf\r"
+
+expect "localhost:~#"
 send "sed -i -E 's/(local kernel_opts)=.*/\\1=\"console=ttyS0\"/' /sbin/setup-disk\r"
 
 expect "localhost:~#"
@@ -113,6 +116,9 @@ send "root\r"
 
 expect "Password:"
 send "$env(ROOT_PASSWORD)\n"
+
+expect "#"
+send "echo nameserver 1.1.1.1 > /etc/resolv.conf\r"
 
 expect "#"
 send "apk update && apk add docker ip6tables\r"
