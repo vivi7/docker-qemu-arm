@@ -47,6 +47,8 @@ $ curl -o fedora-arm-setup.sh https://raw.githubusercontent.com/egandro/docker-q
 - Thanks to everybody who made this happen.
 
 ## Changelog
+### 2023/08/03
+ - Alpine version 3.18
 ### 2023/08/01
  - fixed issue with alpine for DNS
 ### 2021/10/07
