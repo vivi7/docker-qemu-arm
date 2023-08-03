@@ -130,6 +130,9 @@ expect "#"
 send "rc-update add docker\r"
 
 expect "#"
+send "apk add nano bash\r"
+
+expect "#"
 send "apk add zram-init\r"
 
 # fix broken zram init script
