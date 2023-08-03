@@ -7,9 +7,12 @@ auto eth0
 iface eth0 inet dhcp
     hostname alpine
 "
-TIMEZONEOPTS="-z UTC"
+# Search domain of example.com, Google public nameserver
+DNSOPTS="-d 1.1.1.1 8.8.8.8"
+
+TIMEZONEOPTS="-z Asia/Seoul"
 PROXYOPTS="none"
-APKREPOSOPTS="http://dl-cdn.alpinelinux.org/alpine/v3.14/main http://dl-cdn.alpinelinux.org/alpine/v3.14/community"
+APKREPOSOPTS="http://dl-cdn.alpinelinux.org/alpine/v3.18/main http://dl-cdn.alpinelinux.org/alpine/v3.18/community"
 SSHDOPTS="-c openssh"
 NTPOPTS="-c busybox"
 DISKOPTS="-v -m sys -s 0 /dev/sda"
