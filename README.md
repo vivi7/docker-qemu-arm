@@ -11,7 +11,7 @@ This is a automatic installation script. As memory is always short, we also inst
 
 
 ```bash
-$ curl -o termux-setup.sh https://raw.githubusercontent.com/musk95/docker-qemu-arm/master/termux-setup.sh && chmod 755 ./termux-setup.sh && ./termux-setup.sh
+$ curl -o termux-setup.sh https://raw.githubusercontent.com/vivi7/docker-qemu-arm/master/termux-setup.sh && chmod 755 ./termux-setup.sh && ./termux-setup.sh
 ```
 
 
@@ -19,20 +19,20 @@ $ curl -o termux-setup.sh https://raw.githubusercontent.com/musk95/docker-qemu-a
 
 
 ```bash
-$ curl -o pi-setup.sh https://raw.githubusercontent.com/egandro/docker-qemu-arm/master/pi-setup.sh && chmod 755 ./pi-setup.sh && ./pi-setup.sh
+$ curl -o pi-setup.sh https://raw.githubusercontent.com/vivi7/docker-qemu-arm/master/pi-setup.sh && chmod 755 ./pi-setup.sh && ./pi-setup.sh
 ```
 
 ##  Fedora ARM
 
 ```bash
-$ curl -o fedora-arm-setup.sh https://raw.githubusercontent.com/egandro/docker-qemu-arm/master/fedora-arm-setup.sh && chmod 755 ./fedora-arm-setup.sh && ./fedora-arm-setup.sh
+$ curl -o fedora-arm-setup.sh https://raw.githubusercontent.com/vivi7/docker-qemu-arm/master/fedora-arm-setup.sh && chmod 755 ./fedora-arm-setup.sh && ./fedora-arm-setup.sh
 ```
 
 
 ## Postinstall & fun
 
 - start the VM with "startqemu.sh"
-- root passwort is "Secret123" but root in ssh is locked by password
+- root passwort is "root" but root in ssh is locked by password
 - please change the password anyway
 - you can ssh to the VM with a 2nd Terminal and "ssh2qemu.sh" qemukey / qemukey.ssh are SSH keys
 - run a "uname -a" and a "docker run hello-world"

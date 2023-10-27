@@ -10,7 +10,7 @@ iface eth0 inet dhcp
 # Search domain of example.com, Google public nameserver
 DNSOPTS="-d 1.1.1.1 8.8.8.8"
 
-TIMEZONEOPTS="-z Asia/Seoul"
+TIMEZONEOPTS="-z Europe/Rome"
 PROXYOPTS="none"
 APKREPOSOPTS="http://dl-cdn.alpinelinux.org/alpine/v3.18/main http://dl-cdn.alpinelinux.org/alpine/v3.18/community"
 SSHDOPTS="-c openssh"
