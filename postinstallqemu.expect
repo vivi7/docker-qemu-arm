@@ -1,0 +1,77 @@
+###############################################
+#
+# setup the system
+#
+
+set qemukey [exec cat ./qemukey.pub]
+set answerfile [exec cat ./answerfile]
+
+spawn qemu-system-x86_64 -machine q35 -m 1024 -smp cpus=2 -cpu qemu64 \
+  -drive if=pflash,format=raw,read-only=on,file=$env(PREFIX)/share/qemu/edk2-x86_64-code.fd \
+  -device virtio-net-pci,netdev=n0 -netdev user,id=n0,dns=1.1.1.1,hostfwd=tcp::2222-:22 \
+  -rtc base=localtime \
+  -nographic alpine.img
+
+set qemuID $spawn_id
+
+expect "#:"
+send "no1\r"
+expect "#:"
+send "no2\r"
+expect "#:"
+send "no3\r"
+expect "#:"
+send "no4\r"
+expect "#:"
+send "no5\r"
+expect "#:"
+send "no6\r"
+
+
+expect "login:"
+send "root\r"
+
+expect "Password:"
+send "root\r"
+
+
+
+expect "#"
+send "echo nameserver 1.1.1.1 > /etc/resolv.conf\r"
+
+expect "#"
+send "apk update && apk add docker docker-compose ip6tables\r"
+
+expect "#"
+send "service docker start\r"
+
+expect "#"
+send "rc-update add docker\r"
+
+expect "#"
+send "apk add nano bash\r"
+
+expect "#"
+send "apk add zram-init\r"
+
+# fix broken zram init script
+expect "#"
+send "sed -i -E 's/num_devices=2/num_devices=1/' /etc/conf.d/zram-init\r"
+
+expect "#"
+send "service zram-init start\r"
+
+expect "#"
+send "rc-update add zram-init\r"
+
+expect "#"
+send "mkdir -p /root/.ssh\r"
+
+expect "#"
+send "chmod 700 /root/.ssh\r"
+
+expect "#"
+send "echo $qemukey >> /root/.ssh/authorized_keys\r"
+
+close -i $qemuID
+

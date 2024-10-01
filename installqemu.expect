@@ -114,6 +114,19 @@ spawn qemu-system-x86_64 -machine q35 -m 1024 -smp cpus=2 -cpu qemu64 \
 
 set qemuID $spawn_id
 
+expect "#:"
+send "no1\r"
+expect "#:"
+send "no2\r"
+expect "#:"
+send "no3\r"
+expect "#:"
+send "no4\r"
+expect "#:"
+send "no5\r"
+expect "#:"
+send "no6\r"
+
 expect "login:"
 send "root\r"
 
